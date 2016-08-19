@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://www.youtube.com"/>
 <title>Master App</title>
 <link href="http://m.josue45.com/mobile/mobileTest/css.css" rel="stylesheet" type="text/css">
 <link href="http://m.josue45.com/jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
@@ -31,7 +30,11 @@ function thePath(){ //this will return the path of current user
 		return id;
 			}
 
-		
+		var doc_css = document.createElement("link");
+	doc_css.setAttribute("href", "http://m.josue45.com/mobile/final-customcss.php?iduser="+thePath());
+	doc_css.setAttribute("type", "text/css");
+	doc_css.setAttribute("rel", "stylesheet");
+	document.getElementsByTagName('head')[0].appendChild(doc_css);
 			
 		//alert(thePath());
 		//alert(this.id);
@@ -77,9 +80,8 @@ $(document).ready( function(){
 
 		
 		appSettings();
-		module();
 		phones();
-			
+		module();
 			
 
 			
@@ -586,17 +588,13 @@ function setFooter(company){
 </div>
 
 
-
-
- <script type="text/javascript" language="javascript" src="http://m.josue45.com/mobile/mobileTest/camera.js"></script>
-
-
-      
-</body>
-</html>
-	<!-- <script type="text/javascript" language="javascript" src="assets/camera.js"></script> -->
- <script type="text/javascript">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" language="javascript" src="http://m.josue45.com/mobile/mobileTest/camera.js"></script>
+       <script type="text/javascript">
 			app.initialize();
         </script>
 	
-<script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>
+
+
